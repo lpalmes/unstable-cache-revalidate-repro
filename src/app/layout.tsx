@@ -19,17 +19,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + " m-4"}>
         <ul className="list-disc list-inside mb-4">
-          <li>
-            <Link href="/">
-              <span className="text-blue-600">/</span> using unstable_cache
-            </Link>
-          </li>
-          <li>
-            <Link href="/fetch">
-              <span className="text-blue-600">/fetch</span> using fetch with
-              tags
-            </Link>
-          </li>
+          {[1, 2, 3, 4].map((n) => (
+            <li key={n}>
+              <Link href={`/unstable_cache/${n}`} className="text-blue-600">
+                /unstable_cache/{n}
+              </Link>
+            </li>
+          ))}
+          {[1, 2, 3, 4].map((n) => (
+            <li key={n}>
+              <Link href={`/fetch/${n}`} className="text-blue-600">
+                /fetch/{n}
+              </Link>
+            </li>
+          ))}
           <li>
             <a href="/api/revalidate?tag=test" className="text-blue-600">
               /api/revalidate?tag=test
